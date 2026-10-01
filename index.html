@@ -131,6 +131,15 @@
         font-weight: 600;
     }
 
+    /* رفع كل المحتوى تحت الاسم قليلًا */
+
+    .question-section,
+    .element-section,
+    .game-area,
+    .controls {
+        transform: translateY(-8px);
+    }
+
     /* QUESTION */
 
     .question-section {
@@ -169,10 +178,26 @@
         color: #5E244E;
     }
 
+    /* بوكس الإجابة الشفاف */
+
     #answer-box {
         display: none;
 
-        margin-top: 5px;
+        margin: 8px auto 0;
+
+        width: fit-content;
+        max-width: 90%;
+
+        padding: 7px 18px;
+
+        border-radius: 12px;
+
+        background: rgba(255, 249, 242, 0.55);
+
+        border: 1px solid rgba(94, 36, 78, 0.12);
+
+        box-shadow:
+            0 4px 14px rgba(94, 36, 78, 0.06);
 
         font-size: clamp(13px, 1.3vw, 17px);
 
@@ -934,9 +959,10 @@
 
                 <img
                     id="element-icon"
-                    src="Dallah.svg"
+                    src=""
                     alt=""
                     class="custom-element-icon"
+                    style="display: none;"
                 >
 
             </div>
@@ -2320,6 +2346,14 @@
         ).src =
             element.icon;
 
+
+        /* إظهار الأيقونة بعد سحب العنصر */
+
+        document.getElementById(
+            'element-icon'
+        ).style.display =
+            'block';
+
     }
 
 
@@ -2541,7 +2575,15 @@
         document.getElementById(
             'element-icon'
         ).src =
-            'Dallah.svg';
+            '';
+
+
+        /* إخفاء الأيقونة حتى يتم سحب عنصر جديد */
+
+        document.getElementById(
+            'element-icon'
+        ).style.display =
+            'none';
 
 
         document.getElementById(
