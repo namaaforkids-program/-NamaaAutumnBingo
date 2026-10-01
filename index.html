@@ -255,6 +255,13 @@
         font-size: 25px;
     }
 
+    .custom-element-icon {
+        width: 38px;
+        height: 38px;
+
+        object-fit: contain;
+    }
+
     #element-name {
         font-size: clamp(21px, 2.2vw, 30px);
 
@@ -415,6 +422,21 @@
         margin-bottom: 2px;
 
         color: #5E244E;
+    }
+
+    .bingo-cell .custom-icon {
+        width: clamp(14px, 1.5vw, 21px);
+        height: clamp(14px, 1.5vw, 21px);
+
+        margin-bottom: 2px;
+
+        object-fit: contain;
+    }
+
+    .free-star {
+        font-size: clamp(14px, 1.5vw, 21px);
+
+        margin-bottom: 2px;
     }
 
     .bingo-cell span {
@@ -910,10 +932,12 @@
 
             <div class="element-icon">
 
-                <i
+                <img
                     id="element-icon"
-                    class="fa-solid fa-star"
-                ></i>
+                    src="Dallah.svg"
+                    alt=""
+                    class="custom-element-icon"
+                >
 
             </div>
 
@@ -1081,30 +1105,30 @@
 
     const RAW_BINGO_ELEMENTS = [
 
-        { id:'b1', name:'دلة', icon:'fa-fire-burner' },
-        { id:'b2', name:'فنجال', icon:'fa-mug-saucer' },
-        { id:'b3', name:'سبحة', icon:'fa-circle-dot' },
-        { id:'b4', name:'شال', icon:'fa-shirt' },
-        { id:'b5', name:'جاكيت', icon:'fa-shirt' },
-        { id:'b6', name:'مظلة', icon:'fa-umbrella' },
-        { id:'b7', name:'مطر', icon:'fa-cloud-rain' },
-        { id:'b8', name:'ورق شجر', icon:'fa-leaf' },
-        { id:'b9', name:'شمعة', icon:'fa-fire' },
-        { id:'b10', name:'كتاب', icon:'fa-book' },
-        { id:'b11', name:'نجمة', icon:'fa-star' },
-        { id:'b12', name:'بطانية', icon:'fa-bed' },
-        { id:'b13', name:'خيمة', icon:'fa-campground' },
-        { id:'b14', name:'حطب', icon:'fa-tree' },
-        { id:'b15', name:'قمر', icon:'fa-moon' },
-        { id:'b16', name:'كوب', icon:'fa-mug-hot' },
-        { id:'b17', name:'نخلة', icon:'fa-tree' },
-        { id:'b18', name:'البر', icon:'fa-mountain-sun' },
-        { id:'b19', name:'سحاب', icon:'fa-cloud' },
-        { id:'b20', name:'فشار', icon:'fa-bowl-food' },
-        { id:'b21', name:'نار', icon:'fa-fire-flame-curved' },
-        { id:'b22', name:'كرك', icon:'fa-mug-hot' },
-        { id:'b23', name:'سلة', icon:'fa-basket-shopping' },
-        { id:'b24', name:'جوال', icon:'fa-mobile-screen' }
+        { id:'b1', name:'دلة', icon:'Dallah.svg' },
+        { id:'b2', name:'فنجال', icon:'coffeebean.svg' },
+        { id:'b3', name:'برق', icon:'thunder.svg' },
+        { id:'b4', name:'شال', icon:'scarf.svg' },
+        { id:'b5', name:'جاكيت', icon:'jacket.svg' },
+        { id:'b6', name:'مظلة', icon:'umbrella.svg' },
+        { id:'b7', name:'مطر', icon:'rain.svg' },
+        { id:'b8', name:'ورق شجر', icon:'autumn-leaf.svg' },
+        { id:'b9', name:'شمعة', icon:'candle.svg' },
+        { id:'b10', name:'كتاب', icon:'Book.svg' },
+        { id:'b11', name:'ذرة', icon:'Corn.svg' },
+        { id:'b12', name:'خيمة', icon:'tent.svg' },
+        { id:'b13', name:'حطب', icon:'firewood.svg' },
+        { id:'b14', name:'قمر', icon:'moon.svg' },
+        { id:'b15', name:'قرع', icon:'pumpkin.svg' },
+        { id:'b16', name:'البر', icon:'desert.svg' },
+        { id:'b17', name:'سحاب', icon:'cloud.svg' },
+        { id:'b18', name:'خزامى', icon:'lavender.svg' },
+        { id:'b19', name:'نار', icon:'Fair .svg' },
+        { id:'b20', name:'كرك', icon:'karak.svg' },
+        { id:'b21', name:'كشته', icon:'picnic.svg' },
+        { id:'b22', name:'قوس المطر', icon:'rainbow.svg' },
+        { id:'b23', name:'سيارة', icon:'Car.svg' },
+        { id:'b24', name:'فرشة', icon:'picnic-mat.svg' }
 
     ];
 
@@ -1831,7 +1855,7 @@
         {
             id: 'free',
             name: 'FREE',
-            icon: 'fa-star',
+            icon: '⭐',
             isFree: true
         }
     );
@@ -1937,10 +1961,19 @@
             }
 
 
-            cell.innerHTML = `
-                <i class="fa-solid ${element.icon}"></i>
-                <span>${element.name}</span>
-            `;
+            cell.innerHTML = element.isFree
+                ? `
+                    <span class="free-star">⭐</span>
+                    <span>${element.name}</span>
+                  `
+                : `
+                    <img
+                        src="${element.icon}"
+                        alt="${element.name}"
+                        class="custom-icon"
+                    >
+                    <span>${element.name}</span>
+                  `;
 
 
             if (!element.isFree) {
@@ -2284,8 +2317,8 @@
 
         document.getElementById(
             'element-icon'
-        ).className =
-            `fa-solid ${element.icon}`;
+        ).src =
+            element.icon;
 
     }
 
@@ -2507,8 +2540,8 @@
 
         document.getElementById(
             'element-icon'
-        ).className =
-            'fa-solid fa-star';
+        ).src =
+            'Dallah.svg';
 
 
         document.getElementById(
