@@ -449,14 +449,22 @@
         color: #5E244E;
     }
 
-    .bingo-cell .custom-icon {
-        width: clamp(20px, 2.2vw, 32px);
-        height: clamp(20px, 2.2vw, 32px);
+   .bingo-cell .custom-icon {
+    width: clamp(26px, 3vw, 42px);
+    height: clamp(26px, 3vw, 42px);
 
-        margin-bottom: 3px;
+    margin-bottom: 3px;
 
-        object-fit: contain;
-    }
+    object-fit: contain;
+
+    filter: brightness(0) saturate(100%)
+            invert(18%)
+            sepia(18%)
+            saturate(1746%)
+            hue-rotate(284deg)
+            brightness(85%)
+            contrast(91%);
+}
 
     .free-star {
         font-size: clamp(14px, 1.5vw, 21px);
