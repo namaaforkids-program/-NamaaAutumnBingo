@@ -1,0 +1,2732 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SaudiNationalDay96Bingo</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap"
+          rel="stylesheet">
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        body {
+            font-family: 'Cairo', sans-serif;
+
+            background:
+                radial-gradient(
+                    circle at top left,
+                    rgba(255, 255, 255, 0.45),
+                    transparent 30%
+                ),
+                radial-gradient(
+                    circle at bottom right,
+                    rgba(201, 120, 62, 0.12),
+                    transparent 30%
+                ),
+                #F3E8D5;
+
+            color: #3D3028;
+            overflow: hidden;
+        }
+
+        button {
+            font-family: 'Cairo', sans-serif;
+            touch-action: manipulation;
+        }
+
+        .app {
+            width: 100%;
+            height: 100vh;
+            height: 100dvh;
+
+            display: flex;
+            flex-direction: column;
+
+            overflow: hidden;
+        }
+
+        /* HEADER */
+
+        .header {
+            height: 80px;
+            min-height: 80px;
+
+            padding: 10px 28px;
+
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+
+            gap: 16px;
+        }
+
+        .title-area {
+            text-align: right;
+            flex: 0 0 auto;
+        }
+
+        .logo-area {
+            width: 64px;
+            height: 64px;
+
+            flex-shrink: 0;
+
+            border-radius: 50%;
+            overflow: hidden;
+
+            background: #FFF9F0;
+
+            border: 3px solid #D5A04A;
+
+            box-shadow:
+                0 5px 18px rgba(61, 48, 40, 0.20);
+        }
+
+        .logo-area img {
+            width: 100%;
+            height: 100%;
+
+            object-fit: contain;
+            display: block;
+        }
+
+        .title-area h1 {
+            margin: 0;
+
+            font-size: clamp(22px, 3vw, 36px);
+            font-weight: 900;
+            line-height: 1.1;
+
+            color: #3D3028;
+        }
+
+        .title-area p {
+            margin: 5px 0 0;
+
+            font-size: clamp(11px, 1.3vw, 15px);
+
+            color: #C9783E;
+
+            font-weight: 600;
+        }
+
+        /* QUESTION */
+
+        .question-section {
+            width: min(1100px, 94%);
+
+            margin: 0 auto;
+
+            padding: 8px 20px 12px;
+
+            text-align: center;
+
+            flex-shrink: 0;
+        }
+
+        .question-label {
+            font-size: 13px;
+
+            color: #C9783E;
+
+            font-weight: 700;
+
+            margin-bottom: 3px;
+        }
+
+        #question-text {
+            margin: 0;
+
+            font-size: clamp(18px, 2vw, 28px);
+
+            font-weight: 800;
+
+            line-height: 1.35;
+
+            min-height: 42px;
+
+            color: #3D3028;
+        }
+
+        #answer-box {
+            display: none;
+
+            margin-top: 5px;
+
+            font-size: clamp(13px, 1.3vw, 17px);
+
+            color: #C9783E;
+
+            font-weight: 600;
+        }
+
+        #btn-reveal {
+            display: none;
+
+            margin-top: 5px;
+
+            border: none;
+
+            background: transparent;
+
+            color: #C9783E;
+
+            font-weight: 700;
+
+            cursor: pointer;
+        }
+
+        /* ELEMENT */
+
+        .element-section {
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            padding: 4px 20px 10px;
+
+            flex-shrink: 0;
+        }
+
+        .element-card {
+            width: min(390px, 90%);
+
+            min-height: 92px;
+
+            padding: 12px 24px;
+
+            border-radius: 20px;
+
+            background: #FFF9F0;
+
+            border: 1px solid rgba(107, 70, 50, 0.15);
+
+            box-shadow:
+                0 10px 30px rgba(61, 48, 40, 0.12),
+                inset 0 1px 0 rgba(255, 255, 255, 0.8);
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            gap: 15px;
+        }
+
+        .element-icon {
+            width: 52px;
+            height: 52px;
+
+            min-width: 52px;
+
+            border-radius: 15px;
+
+            background: #D5A04A;
+
+            color: #3D3028;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            font-size: 25px;
+        }
+
+        #element-name {
+            font-size: clamp(21px, 2.2vw, 30px);
+
+            font-weight: 900;
+
+            color: #3D3028;
+        }
+
+        /* GAME */
+
+        .game-area {
+            flex: 1;
+
+            min-height: 0;
+
+            width: min(1180px, 96%);
+
+            margin: 0 auto;
+
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 20px;
+
+            padding: 4px 0 10px;
+        }
+
+        /* TEAM */
+
+        .team-panel {
+            min-width: 0;
+
+            min-height: 0;
+
+            background: rgba(255, 249, 240, 0.72);
+
+            border: 1px solid rgba(107, 70, 50, 0.14);
+
+            border-radius: 20px;
+
+            padding: 10px;
+
+            display: flex;
+
+            flex-direction: column;
+
+            box-shadow:
+                0 10px 30px rgba(61, 48, 40, 0.10);
+        }
+
+        .team-header {
+            display: flex;
+
+            align-items: center;
+            justify-content: space-between;
+
+            gap: 10px;
+
+            padding: 2px 8px 8px;
+
+            flex-shrink: 0;
+        }
+
+        .team-name {
+            width: 100%;
+
+            min-width: 0;
+
+            background: transparent;
+
+            border: none;
+
+            outline: none;
+
+            color: #3D3028;
+
+            font-family: 'Cairo', sans-serif;
+
+            font-size: clamp(16px, 1.7vw, 22px);
+
+            font-weight: 800;
+
+            text-align: center;
+        }
+
+        .team-score {
+            background: #D5A04A;
+
+            color: #3D3028;
+
+            border-radius: 10px;
+
+            padding: 3px 10px;
+
+            font-weight: 900;
+
+            font-size: 14px;
+
+            white-space: nowrap;
+        }
+
+        /* BINGO */
+
+        .bingo-board {
+            flex: 1;
+
+            min-height: 0;
+
+            display: grid;
+
+            grid-template-columns: repeat(5, 1fr);
+
+            grid-template-rows: repeat(5, 1fr);
+
+            gap: 6px;
+        }
+
+        .bingo-cell {
+            min-width: 0;
+
+            min-height: 0;
+
+            border-radius: 10px;
+
+            border: 1px solid rgba(107, 70, 50, 0.14);
+
+            background: #FFF9F0;
+
+            color: #3D3028;
+
+            display: flex;
+
+            flex-direction: column;
+
+            align-items: center;
+            justify-content: center;
+
+            text-align: center;
+
+            cursor: pointer;
+
+            transition:
+                transform 0.15s ease,
+                background 0.15s ease,
+                box-shadow 0.15s ease;
+        }
+
+        .bingo-cell:hover {
+            transform: scale(1.025);
+
+            background: #F8EEDF;
+        }
+
+        .bingo-cell i {
+            font-size: clamp(14px, 1.5vw, 21px);
+
+            margin-bottom: 2px;
+
+            color: #C9783E;
+        }
+
+        .bingo-cell span {
+            font-size: clamp(9px, 1vw, 13px);
+
+            font-weight: 700;
+
+            line-height: 1.1;
+
+            padding: 0 3px;
+        }
+
+        .bingo-cell.checked {
+            background: #C9783E;
+
+            color: #FFF9F0;
+
+            box-shadow:
+                0 0 0 2px rgba(201, 120, 62, 0.25),
+                0 5px 15px rgba(61, 48, 40, 0.15);
+        }
+
+        .bingo-cell.checked i {
+            color: #FFF9F0;
+        }
+
+        .bingo-cell.free {
+            background: #D5A04A;
+
+            color: #3D3028;
+
+            cursor: default;
+        }
+
+        .bingo-cell.free i {
+            color: #FFF9F0;
+        }
+
+        /* CONTROLS */
+
+        .controls {
+            width: min(850px, 94%);
+
+            min-height: 68px;
+
+            margin: 0 auto;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            gap: 14px;
+
+            padding: 8px 0 14px;
+
+            flex-shrink: 0;
+
+            position: relative;
+
+            z-index: 30;
+        }
+
+        .control-btn {
+            flex: 1;
+
+            max-width: 330px;
+
+            min-height: 46px;
+
+            border: none;
+
+            border-radius: 13px;
+
+            font-size: clamp(13px, 1.3vw, 17px);
+
+            font-weight: 800;
+
+            cursor: pointer;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            gap: 8px;
+
+            transition:
+                transform 0.15s ease,
+                opacity 0.15s ease;
+        }
+
+        .control-btn:hover:not(:disabled) {
+            transform: translateY(-2px);
+        }
+
+        .control-btn:active:not(:disabled) {
+            transform: scale(0.98);
+        }
+
+        .element-btn {
+            background: #D5A04A;
+
+            color: #3D3028;
+        }
+
+        .question-btn {
+            background: #FFF9F0;
+
+            color: #3D3028;
+
+            border: 1px solid rgba(107, 70, 50, 0.14);
+        }
+
+        .control-btn:disabled {
+            opacity: 0.45;
+
+            cursor: not-allowed;
+        }
+
+        /* WIN */
+
+        #win-modal {
+            position: fixed;
+
+            inset: 0;
+
+            display: none;
+
+            align-items: center;
+            justify-content: center;
+
+            background: rgba(61, 48, 40, 0.70);
+
+            backdrop-filter: blur(8px);
+
+            z-index: 200;
+        }
+
+        #win-modal.show {
+            display: flex;
+        }
+
+        .win-box {
+            width: min(470px, 90%);
+
+            padding: 30px 25px;
+
+            text-align: center;
+
+            border-radius: 25px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(107, 70, 50, 0.98),
+                    rgba(61, 48, 40, 0.98)
+                );
+
+            border: 2px solid #D5A04A;
+
+            box-shadow:
+                0 20px 60px rgba(61, 48, 40, 0.35);
+
+            animation: winPop 0.45s ease;
+        }
+
+        @keyframes winPop {
+
+            from {
+                transform: scale(0.7);
+
+                opacity: 0;
+            }
+
+            to {
+                transform: scale(1);
+
+                opacity: 1;
+            }
+
+        }
+
+        .trophy {
+            width: 80px;
+            height: 80px;
+
+            margin: 0 auto 15px;
+
+            border-radius: 50%;
+
+            background: #D5A04A;
+
+            color: #3D3028;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            font-size: 38px;
+
+            animation:
+                trophyBounce 0.9s infinite alternate;
+        }
+
+        @keyframes trophyBounce {
+
+            from {
+                transform:
+                    translateY(0)
+                    rotate(-4deg);
+            }
+
+            to {
+                transform:
+                    translateY(-7px)
+                    rotate(4deg);
+            }
+
+        }
+
+        #win-title {
+            font-size: 30px;
+
+            font-weight: 900;
+
+            margin: 0 0 8px;
+
+            color: #FFF9F0;
+        }
+
+        #win-message {
+            font-size: 15px;
+
+            color: #EBCB9A;
+
+            margin: 0 0 22px;
+        }
+
+        .win-buttons {
+            display: flex;
+
+            gap: 10px;
+
+            justify-content: center;
+        }
+
+        .win-btn {
+            border: none;
+
+            border-radius: 12px;
+
+            padding: 11px 18px;
+
+            font-family: 'Cairo', sans-serif;
+
+            font-weight: 800;
+
+            cursor: pointer;
+        }
+
+        .reset-btn {
+            background: #D5A04A;
+
+            color: #3D3028;
+        }
+
+        .continue-btn {
+            background: rgba(255, 249, 240, 0.12);
+
+            color: #FFF9F0;
+
+            border: 1px solid rgba(255, 249, 240, 0.25);
+        }
+
+        /* CONFETTI */
+
+        #confetti-container {
+            position: fixed;
+
+            inset: 0;
+
+            overflow: hidden;
+
+            pointer-events: none;
+
+            z-index: 300;
+        }
+
+        .confetti {
+            position: absolute;
+
+            top: -20px;
+
+            width: 9px;
+            height: 15px;
+
+            border-radius: 2px;
+
+            animation:
+                confettiFall linear forwards;
+        }
+
+        @keyframes confettiFall {
+
+            0% {
+                transform:
+                    translate3d(0, -20px, 0)
+                    rotate(0deg);
+
+                opacity: 1;
+            }
+
+            100% {
+                transform:
+                    translate3d(var(--move-x), 110vh, 0)
+                    rotate(720deg);
+
+                opacity: 0;
+            }
+
+        }
+
+        /* SMALL SCREEN */
+
+        @media (max-height: 720px) {
+
+            .header {
+                height: 65px;
+
+                min-height: 65px;
+
+                padding: 7px 20px;
+            }
+
+            .logo-area {
+                width: 50px;
+                height: 50px;
+            }
+
+            .question-section {
+                padding-top: 3px;
+
+                padding-bottom: 5px;
+            }
+
+            .element-card {
+                min-height: 72px;
+
+                padding: 7px 18px;
+            }
+
+            .element-icon {
+                width: 42px;
+                height: 42px;
+
+                min-width: 42px;
+
+                font-size: 20px;
+            }
+
+            .game-area {
+                gap: 12px;
+
+                padding-bottom: 5px;
+            }
+
+            .team-panel {
+                padding: 7px;
+            }
+
+            .bingo-board {
+                gap: 4px;
+            }
+
+            .controls {
+                min-height: 57px;
+
+                padding-bottom: 8px;
+            }
+
+            .control-btn {
+                min-height: 39px;
+            }
+
+        }
+
+        @media (max-width: 700px) {
+
+            body {
+                overflow: auto;
+            }
+
+            .app {
+                min-height: 100vh;
+
+                height: auto;
+
+                overflow: visible;
+            }
+
+            .header {
+                padding: 10px 15px;
+            }
+
+            .game-area {
+                width: 96%;
+
+                grid-template-columns: 1fr;
+            }
+
+            .team-panel {
+                min-height: 340px;
+            }
+
+            .controls {
+                padding-bottom: 15px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<div class="app">
+
+    <!-- HEADER -->
+
+    <header class="header">
+
+        <div class="title-area">
+
+            <h1>
+                Saudi National Day 96 Bingo
+            </h1>
+
+        </div>
+
+        <div class="logo-area">
+
+            <img
+                src="./74C4E3DD-B884-454B-B50B-6663DD3B846E.png"
+                alt="شعار نماء"
+            >
+
+        </div>
+
+    </header>
+
+
+    <!-- QUESTION -->
+
+    <section class="question-section">
+
+        <div class="question-label">
+            السؤال
+        </div>
+
+        <p id="question-text">
+            اضغط على "سحب سؤال" لبدء اللعبة
+        </p>
+
+        <div id="answer-box">
+
+            <span>الإجابة: </span>
+
+            <span id="answer-text"></span>
+
+        </div>
+
+        <button
+            id="btn-reveal"
+            type="button"
+        >
+
+            <i class="fa-solid fa-eye"></i>
+
+            إظهار الإجابة
+
+        </button>
+
+    </section>
+
+
+    <!-- CURRENT ELEMENT -->
+
+    <section class="element-section">
+
+        <div class="element-card">
+
+            <div class="element-icon">
+
+                <i
+                    id="element-icon"
+                    class="fa-solid fa-star"
+                ></i>
+
+            </div>
+
+            <div id="element-name">
+                اسحب عنصرًا
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- GAME -->
+
+    <main class="game-area">
+
+        <!-- TEAM 1 -->
+
+        <section class="team-panel">
+
+            <div class="team-header">
+
+                <input
+                    id="team1-name"
+                    class="team-name"
+                    type="text"
+                    value="فريق الأخضر"
+                    aria-label="اسم الفريق الأول"
+                >
+
+                <div class="team-score">
+
+                    <span id="team1-score">
+                        0
+                    </span>
+
+                </div>
+
+            </div>
+
+            <div
+                id="team1-board"
+                class="bingo-board"
+            ></div>
+
+        </section>
+
+
+        <!-- TEAM 2 -->
+
+        <section class="team-panel">
+
+            <div class="team-header">
+
+                <input
+                    id="team2-name"
+                    class="team-name"
+                    type="text"
+                    value="فريق المجد"
+                    aria-label="اسم الفريق الثاني"
+                >
+
+                <div class="team-score">
+
+                    <span id="team2-score">
+                        0
+                    </span>
+
+                </div>
+
+            </div>
+
+            <div
+                id="team2-board"
+                class="bingo-board"
+            ></div>
+
+        </section>
+
+    </main>
+
+
+    <!-- CONTROLS -->
+
+    <section class="controls">
+
+        <button
+            id="btn-draw-element"
+            type="button"
+            class="control-btn element-btn"
+        >
+
+            <i class="fa-solid fa-shuffle"></i>
+
+            سحب عنصر
+
+        </button>
+
+
+        <button
+            id="btn-draw-question"
+            type="button"
+            class="control-btn question-btn"
+        >
+
+            <i class="fa-solid fa-circle-question"></i>
+
+            سحب سؤال
+
+        </button>
+
+    </section>
+
+</div>
+
+
+<!-- WIN MODAL -->
+
+<div id="win-modal">
+
+    <div id="confetti-container"></div>
+
+    <div class="win-box">
+
+        <div class="trophy">
+
+            <i class="fa-solid fa-trophy"></i>
+
+        </div>
+
+        <h2 id="win-title">
+            🎉 مبروك الفوز! 🎉
+        </h2>
+
+        <p id="win-message">
+            استطاع الفريق إكمال خط مستقيم في لوحة البينجو!
+        </p>
+
+        <div class="win-buttons">
+
+            <button
+                id="btn-reset-game"
+                type="button"
+                class="win-btn reset-btn"
+            >
+
+                <i class="fa-solid fa-rotate-right"></i>
+
+                إعادة اللعبة
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<script>
+
+    /* =====================================================
+       BINGO ELEMENTS
+    ===================================================== */
+
+    const RAW_BINGO_ELEMENTS = [
+
+        { id:'b1', name:'دلة', icon:'fa-fire-burner' },
+
+        { id:'b2', name:'فنجال', icon:'fa-mug-saucer' },
+
+        { id:'b3', name:'سبحة', icon:'fa-circle-dot' },
+
+        { id:'b4', name:'شال', icon:'fa-shirt' },
+
+        { id:'b5', name:'جاكيت', icon:'fa-shirt' },
+
+        { id:'b6', name:'مظلة', icon:'fa-umbrella' },
+
+        { id:'b7', name:'مطر', icon:'fa-cloud-rain' },
+
+        { id:'b8', name:'ورق شجر', icon:'fa-leaf' },
+
+        { id:'b9', name:'شمعة', icon:'fa-fire' },
+
+        { id:'b10', name:'كتاب', icon:'fa-book' },
+
+        { id:'b11', name:'نجمة', icon:'fa-star' },
+
+        { id:'b12', name:'بطانية', icon:'fa-bed' },
+
+        { id:'b13', name:'خيمة', icon:'fa-campground' },
+
+        { id:'b14', name:'حطب', icon:'fa-tree' },
+
+        { id:'b15', name:'قمر', icon:'fa-moon' },
+
+        { id:'b16', name:'كوب', icon:'fa-mug-hot' },
+
+        { id:'b17', name:'نخلة', icon:'fa-tree' },
+
+        { id:'b18', name:'البر', icon:'fa-mountain-sun' },
+
+        { id:'b19', name:'سحاب', icon:'fa-cloud' },
+
+        { id:'b20', name:'فشار', icon:'fa-bowl-food' },
+
+        { id:'b21', name:'نار', icon:'fa-fire-flame-curved' },
+
+        { id:'b22', name:'كرك', icon:'fa-mug-hot' },
+
+        { id:'b23', name:'سلة', icon:'fa-basket-shopping' },
+
+        { id:'b24', name:'جوال', icon:'fa-mobile-screen' }
+
+    ];
+
+
+    /* =====================================================
+       QUESTIONS
+    ===================================================== */
+
+    const QUESTIONS = [
+
+        {
+            q: 'ما لغة البرمجة التي تطورت متأثرةً بلغة C++؟',
+            a: 'جافا (Java)'
+        },
+
+        {
+            q: 'من صاحب الرقم القياسي العالمي في سباق 100 متر، ويُعد أسرع عداء في العالم؟',
+            a: 'يوسين بولت'
+        },
+
+        {
+            q: 'ما اللغة الرسمية الأخرى في كندا إلى جانب الإنجليزية؟',
+            a: 'الفرنسية'
+        },
+
+        {
+            q: 'ما الدولة التي يوجد بها أكبر عدد من البراكين النشطة؟',
+            a: 'إندونيسيا'
+        },
+
+        {
+            q: 'في أي عام أقيم أول حفل لجوائز الأوسكار؟',
+            a: '1929'
+        },
+
+        {
+            q: 'كم عدد أجنحة النحلة؟',
+            a: '4 أجنحة'
+        },
+
+        {
+            q: 'من ثالث لاعب يفوز بالكرة الذهبية ثلاث مرات؟',
+            a: 'ميشيل بلاتيني'
+        },
+
+        {
+            q: 'في أي دولة يقع جبل توبقال، أعلى جبل في الوطن العربي؟',
+            a: 'المغرب'
+        },
+
+        {
+            q: 'ما التقويم الذي تُسمى سنواته بأسماء الحيوانات؟',
+            a: 'التقويم الصيني'
+        },
+
+        {
+            q: 'ما أول دولة اخترعت البارود؟',
+            a: 'الصين'
+        },
+
+        {
+            q: 'ما المدينة التي اشتهرت بتخصيص عناوين بريد إلكتروني لأشجارها؟',
+            a: 'ملبورن'
+        },
+
+        {
+            q: 'ما ثالث أكبر محيط في العالم؟',
+            a: 'المحيط الهندي'
+        },
+
+        {
+            q: 'ما أول دولة عربية فازت بكأس آسيا لكرة القدم؟',
+            a: 'الكويت'
+        },
+
+        {
+            q: 'في أي دولة يقع جامع الزيتونة؟',
+            a: 'تونس'
+        },
+
+        {
+            q: 'في أي عام سقط جدار برلين؟',
+            a: '1989'
+        },
+
+        {
+            q: 'ما أصعب مادة طبيعية معروفة؟',
+            a: 'الألماس'
+        },
+
+        {
+            q: 'في أي دولة توجد شلالات آنجل؟',
+            a: 'فنزويلا'
+        },
+
+        {
+            q: 'أي عضو في جسم الإنسان يستهلك نسبة كبيرة من الأكسجين والطاقة؟',
+            a: 'الدماغ'
+        },
+
+        {
+            q: 'في أي سنة صدرت النسخة الكاملة من لعبة Minecraft؟',
+            a: '2011'
+        },
+
+        {
+            q: 'ما الكلمة التي تعني «دنا»؟',
+            a: 'قَرُب'
+        },
+
+        {
+            q: 'ما نوع من أنواع الخط العربي الجميل؟',
+            a: 'خط الثلث'
+        },
+
+        {
+            q: 'بماذا سُمّي الإنس والجن في القرآن الكريم؟',
+            a: 'الثقلان'
+        },
+
+        {
+            q: 'ما اسم الحي في الدرعية الذي اشتهر بمبانيه التاريخية؟',
+            a: 'طريف'
+        },
+
+        {
+            q: 'ما الكائن الحي الذي يولد رماديًا أو أبيض ويتحول إلى اللون الوردي تدريجيًا بسبب نظامه الغذائي؟',
+            a: 'فلامينغو'
+        },
+
+        {
+            q: 'من هو الأديب والروائي المصري الذي يُعد من أهم الكتاب العرب المعاصرين، وحصل على جائزة نوبل في الأدب؟',
+            a: 'نجيب محفوظ'
+        },
+
+        {
+            q: 'ما النهر الذي يُعد من أطول أنهار أوروبا ويُعرف باسم «نهر العواصم»؟',
+            a: 'الدانوب'
+        },
+
+        {
+            q: 'أكمل المثل الذي يُقال لمن يجلب الضرر لنفسه: «جنت على أهلها…؟»',
+            a: 'براقش'
+        },
+
+        {
+            q: 'ما الحقيبة الجلدية التي يحفظ فيها رامي السهام سهامه؟',
+            a: 'جعبة'
+        },
+
+        {
+            q: 'ما العملية التي تعني تقليد أو إعادة إنشاء نظام حقيقي بهدف التأكد من النتائج ودراستها قبل التنفيذ النهائي؟',
+            a: 'المحاكاة'
+        },
+
+        {
+            q: 'ما النبات الذي يجمع طعمه بين الحلاوة والمرارة؟',
+            a: 'عرق السوس'
+        },
+
+        {
+            q: 'ما المهرجان الوطني التراثي والثقافي الذي يقام في المملكة منذ عام 1985؟',
+            a: 'الجنادرية'
+        },
+
+        {
+            q: 'ما العنصر الكيميائي الذي يُعد من أهم المواد الأساسية في صناعة الإلكترونيات؟',
+            a: 'السيليكون'
+        },
+
+        {
+            q: 'ما اسم الشجرة الصحراوية المعمرة في السعودية؟',
+            a: 'الطلحة'
+        },
+
+        {
+            q: 'السبيرومتر هو جهاز لقياس ماذا؟',
+            a: 'التنفس'
+        },
+
+        {
+            q: 'ما الكلمة التي تعني المساحة المفتوحة داخل المبنى، وتكون عادةً محاطة بالأسوار؟',
+            a: 'فناء'
+        },
+
+        {
+            q: 'ما المادة الكيميائية السامة التي استُخدمت في الحروب وتُحظر الأسلحة الكيميائية التي تستخدمها دوليًا؟',
+            a: 'غاز الخردل'
+        },
+
+        {
+            q: 'ما المقبرة الرئيسية لأهل المدينة المنورة منذ عهد النبي ﷺ؟',
+            a: 'البقيع'
+        },
+
+        {
+            q: 'ما مرادف كلمة «العبودية»؟',
+            a: 'الرِّق'
+        },
+
+        {
+            q: 'ما البروتين الأكثر وفرة في جسم الإنسان، والذي يساعد في ربط الأنسجة ودعم صحة المفاصل والبشرة؟',
+            a: 'الكولاجين'
+        },
+
+        {
+            q: 'من أحد الأنبياء الذين ورد ذكرهم في القرآن الكريم مرتين؟',
+            a: 'ذو الكفل'
+        },
+
+        {
+            q: 'ما الاسم الذي يُطلق على المكانة الاجتماعية الرفيعة التي يحظى بها الشخص بسبب سلطته أو ثروته أو عمله؟',
+            a: 'جاه'
+        },
+
+        {
+            q: 'ما المدينة الأندلسية المشهورة التي بناها الخليفة الأموي عبد الرحمن الناصر؟',
+            a: 'الزهراء (مدينة الزهراء)'
+        },
+
+        {
+            q: 'ما الوصف الذي يُطلق على الهدف الذي يسجله الفريق الخاسر ولا يؤثر في نتيجة المباراة؟',
+            a: 'هدف شرفي'
+        },
+
+        {
+            q: 'ما العلم الذي يوصف بأنه «حب الحكمة»؟',
+            a: 'الفلسفة'
+        },
+
+        {
+            q: 'ما عاصمة كينيا؟',
+            a: 'نيروبي'
+        },
+
+        {
+            q: 'ما الكلمة التي تعني الطابق الذي يوجد تحت مستوى الأرض؟',
+            a: 'سرداب'
+        },
+
+        {
+            q: 'ما الدولة التي توجد بها مدينة «ملقا»، التي تحمل الاسم نفسه لمدينة مالقة الإسبانية؟',
+            a: 'ماليزيا'
+        },
+
+        {
+            q: 'ما الكتيب الذي يُرفق مع الأجهزة الجديدة ليوضح كيفية استخدامها؟',
+            a: 'دليل الاستخدام'
+        },
+
+        {
+            q: 'ما الشيء الذي له خمسة أصابع دون عظم أو لحم؟',
+            a: 'قفاز'
+        },
+
+        {
+            q: 'ما الآية من آيات الله تعالى التي أرسلها على قوم فرعون؟',
+            a: 'الجراد'
+        },
+
+        {
+            q: 'ما العملة الرسمية في تايلاند؟',
+            a: 'البات'
+        },
+
+        {
+            q: 'ما الاسم الأول لأسطورة كرة القدم البرازيلية بيليه؟',
+            a: 'إدسون (Edson)'
+        },
+
+        {
+            q: 'ما أحد أكبر وأعرق أحياء مدينة القاهرة، ويقع في شمالها؟',
+            a: 'شبرا'
+        },
+
+        {
+            q: 'ما أكبر قارة في العالم من حيث المساحة؟',
+            a: 'آسيا'
+        },
+
+        {
+            q: 'ما أكبر محيط في العالم؟',
+            a: 'المحيط الهادئ'
+        },
+
+        {
+            q: 'ما عاصمة أستراليا؟',
+            a: 'كانبيرا'
+        },
+
+        {
+            q: 'ما الكوكب المعروف بالكوكب الأحمر؟',
+            a: 'المريخ'
+        },
+
+        {
+            q: 'ما أكبر كوكب في المجموعة الشمسية؟',
+            a: 'المشتري'
+        },
+
+        {
+            q: 'ما الحيوان الذي يُلقب بسفينة الصحراء؟',
+            a: 'الجمل'
+        },
+
+        {
+            q: 'ما أسرع حيوان بري في العالم؟',
+            a: 'الفهد'
+        },
+
+        {
+            q: 'ما عاصمة اليابان؟',
+            a: 'طوكيو'
+        },
+
+        {
+            q: 'ما البحر الذي يفصل بين السعودية ومصر؟',
+            a: 'البحر الأحمر'
+        },
+
+        {
+            q: 'ما أطول نهر في العالم؟',
+            a: 'نهر النيل'
+        },
+
+        {
+            q: 'ما أصغر دولة في العالم من حيث المساحة؟',
+            a: 'الفاتيكان'
+        },
+
+        {
+            q: 'ما العملة الرسمية للمملكة العربية السعودية؟',
+            a: 'الريال السعودي'
+        },
+
+        {
+            q: 'ما عاصمة المملكة العربية السعودية؟',
+            a: 'الرياض'
+        },
+
+        {
+            q: 'ما أكبر دولة في العالم من حيث المساحة؟',
+            a: 'روسيا'
+        },
+
+        {
+            q: 'ما العضو المسؤول عن ضخ الدم في جسم الإنسان؟',
+            a: 'القلب'
+        },
+
+        {
+            q: 'ما المعدن الذي يُستخدم لصناعة أسلاك الكهرباء بشكل شائع؟',
+            a: 'النحاس'
+        },
+
+        {
+            q: 'ما عاصمة إيطاليا؟',
+            a: 'روما'
+        },
+
+        {
+            q: 'ما اسم الكوكب الأقرب إلى الشمس؟',
+            a: 'عطارد'
+        },
+
+        {
+            q: 'ما أول شهر في السنة الهجرية؟',
+            a: 'محرم'
+        },
+
+        {
+            q: 'ما عاصمة الإمارات العربية المتحدة؟',
+            a: 'أبوظبي'
+        },
+
+        {
+            q: 'ما عاصمة الكويت؟',
+            a: 'مدينة الكويت'
+        },
+
+        {
+            q: 'ما اسم إحدى مسابقات ألعاب القوى التي تعتمد على دفع كرة معدنية لأبعد مسافة ممكنة؟',
+            a: 'رمي الجلة'
+        },
+
+        {
+            q: 'ما الخليط الناتج عن مزج الحصى والإسمنت والرمل، ويُعجن بالماء ويُستخدم في البناء؟',
+            a: 'الخرسانة'
+        },
+
+        {
+            q: 'من هو وزير الخارجية السعودي الذي يُعد صاحب أطول فترة خدمة في منصبه؟',
+            a: 'سعود الفيصل'
+        },
+
+        {
+            q: 'ما المصطلح الذي يدل على درجة من درجات التأكد؟',
+            a: 'الثبوت'
+        },
+
+        {
+            q: 'ما الشيء الذي يتحرك دون انتقال؟',
+            a: 'زمن'
+        },
+
+        {
+            q: 'ما المثل الذي يُقال عند حدوث الأمور على خلاف ما يتمناه الإنسان؟',
+            a: 'تأتي الرياح بما لا تشتهي السفن'
+        },
+
+        {
+            q: 'ما المادة الخفيفة والإسفنجية التي تُستخرج من لحاء أشجار معينة؟',
+            a: 'الفلين'
+        },
+
+        {
+            q: 'ما اسم الخدمة الإلكترونية في السعودية التي تتيح الدخول الآمن والموحد إلى الخدمات الحكومية والخاصة باستخدام الهوية الرقمية؟',
+            a: 'نفاذ'
+        },
+
+        {
+            q: 'ما اسم الجدار الذي بنته الحكومة الألمانية وقسم مدينة برلين إلى قسمين، شرقي وغربي، طوال فترة الحرب الباردة؟',
+            a: 'جدار برلين'
+        },
+
+        {
+            q: 'ما عاصمة بولندا؟',
+            a: 'وارسو'
+        },
+
+        {
+            q: 'ما المصطلح الذي يُطلق على تقسيم إداري في بعض الدول، يضم عدة مناطق أو مدن ويُدار بشكل مستقل عن الحكومة المركزية؟',
+            a: 'ولايات'
+        },
+
+        {
+            q: 'ما اسم الجبل في السعودية الذي يشتهر بتساقط الثلوج عليه خلال فصل الشتاء؟',
+            a: 'جبل اللوز'
+        },
+
+        {
+            q: 'ما اسم تطبيق الهلال الأحمر السعودي الذي يتيح طلب خدمات الإسعاف؟',
+            a: 'إسعفني'
+        },
+
+        {
+            q: 'من هو السياسي السعودي وعضو مجلس الوزراء الذي شغل منصب وزير الدولة للشؤون الخارجية؟',
+            a: 'عادل الجبير'
+        },
+
+        {
+            q: 'ما فرع علوم الحاسب الذي يختص بمحاكاة قدرات الذكاء البشري؟',
+            a: 'الذكاء الاصطناعي'
+        },
+
+        {
+            q: 'ما اسم الشاطئ السياحي الشهير القريب من مدينة الخبر؟',
+            a: 'نصف القمر'
+        },
+
+        {
+            q: 'في أي دولة تقع أعلى شلالات العالم؟',
+            a: 'فنزويلا'
+        },
+
+        {
+            q: 'ما الكلمة التي تجمع في معناها بين الفوضى والدمار؟',
+            a: 'خراب'
+        },
+
+        {
+            q: 'ما الجهاز الخارجي الذي يُستخدم لدعم وتثبيت جزء من الجسم، مثل أحد الأطراف أو المفاصل؟',
+            a: 'جبيرة'
+        },
+
+        {
+            q: 'ما الاسم الذي يُطلق على الممر الضيق بين المباني؟',
+            a: 'زقاق'
+        },
+
+        {
+            q: 'ما اسم السيارة الرياضية الشهيرة من شركة تويوتا في تسعينيات القرن الماضي؟',
+            a: 'سوبرا'
+        },
+
+        {
+            q: 'ما المصطلح الذي يدل على العزيمة والالتزام بتحقيق الهدف؟',
+            a: 'همة'
+        },
+
+        {
+            q: 'ما الكلمة التي تشير إلى الجزء الداخلي أو الجوهر العميق للشيء؟',
+            a: 'لُب'
+        },
+
+        {
+            q: 'ما اسم الشجرة التي تُستخرج من لحائها مركبات ارتبطت تاريخيًا بإنتاج الأسبرين؟',
+            a: 'الصفصاف'
+        },
+
+        {
+            q: 'ما إحدى مدن منطقة جازان؟',
+            a: 'صبيا'
+        },
+
+        {
+            q: 'ما المصطلح العلمي الذي يعبّر عن مقدار الكتلة الموجودة في حجم معين؟',
+            a: 'الكثافة'
+        },
+
+        {
+            q: 'ما الكلمة التي تعني تحريك الشيء بشدة؟',
+            a: 'زعزع'
+        },
+
+        {
+            q: 'ما العنصر الذي يُضاف إلى ملح الطعام للوقاية من نقصه في الجسم؟',
+            a: 'اليود'
+        },
+
+        {
+            q: 'ما اسم المكان أو المكاتب التي يعمل فيها موظفو الدولة؟',
+            a: 'ديوان'
+        },
+
+        {
+            q: 'ما المثل الشعبي الذي يُستخدم للدلالة على قرب المسافة؟',
+            a: 'حذفت حصاة'
+        },
+
+        {
+            q: 'ما الجهاز الذي يُستخدم لقياس درجة الحرارة؟',
+            a: 'الترمومتر'
+        },
+
+        {
+            q: 'من هو الرسام النمساوي الذي عُرف لاحقًا كشخصية سياسية؟',
+            a: 'هتلر'
+        },
+
+        {
+            q: 'ما التقنية التي تُمكّن المستخدم من التفاعل مع بيئة رقمية ثلاثية الأبعاد تحاكي الواقع بالكامل؟',
+            a: 'الواقع الافتراضي'
+        },
+
+        {
+            q: 'ما الدولة التي تتكون من مجموعة كبيرة من الجزر وتقع في جنوب آسيا؟',
+            a: 'المالديف'
+        },
+
+        {
+            q: 'ما اسم الأكلة السعودية الشعبية التي تتكون من رقائق الخبز الجاف واللحم والخضراوات؟',
+            a: 'القرصان'
+        },
+
+        {
+            q: 'ما الوعاء أو الخزان الكبير الذي يُستخدم لتخزين السوائل ونقلها؟',
+            a: 'صهريج'
+        },
+
+        {
+            q: 'ما المصطلح الذي يُطلق على التوجه طويل الأمد الذي تتبعه مؤسسة لتحقيق أهدافها الكبرى؟',
+            a: 'استراتيجية'
+        },
+
+        {
+            q: 'من هو الفيزيائي الذي قاد مشروع مانهاتن ويُلقب بـ«أب القنبلة الذرية»؟',
+            a: 'أوبنهايمر'
+        },
+
+        {
+            q: 'ما الاسم المعروف للطائر مالك الحزين، وهو طائر ذو أرجل طويلة؟',
+            a: 'البلشون'
+        },
+
+        {
+            q: 'ما المفهوم الفيزيائي الذي يدمج الأبعاد المكانية الثلاثة مع البعد الزمني في نسيج واحد رباعي الأبعاد؟',
+            a: 'الزمكان'
+        },
+
+        {
+            q: 'ما الشجرة المباركة التي أقسم الله بها في القرآن الكريم؟',
+            a: 'الزيتون'
+        },
+
+        {
+            q: 'ما اسم المخلوق الخيالي في الأساطير الشعبية الخليجية الذي كان يُخوف به الأطفال لمنعهم من الخروج وقت الظهيرة؟',
+            a: 'حمارة القايلة'
+        },
+
+        {
+            q: 'ماذا تُسمى الرائحة التي تخرج من فم الصائم نتيجة خلو جوفه من الطعام؟',
+            a: 'خلوف'
+        },
+
+        {
+            q: 'ما النص الموجز الذي يقدم أهم النقاط أو النتائج من عمل أطول، كبحث أو كتاب أو نقاش؟',
+            a: 'خلاصة'
+        },
+
+        {
+            q: 'ما الشيء الذي يسير بلا قدمين ويبكي بلا عيون؟',
+            a: 'الغيوم'
+        },
+
+        {
+            q: 'ما الوصف الذي ورد في الأثر للملائكة الذين يطوفون في الأرض تتبعًا لمجالس الذكر والعلم؟',
+            a: 'سياحون'
+        },
+
+        {
+            q: 'ما اللقب الذي كان يُطلق على حاكم الدولة العثمانية؟',
+            a: 'سلطان'
+        },
+
+        {
+            q: 'ما صفة الاستحقاق أو الأهلية لشيء ما بناءً على الكفاءة أو القيمة؟',
+            a: 'جدارة'
+        },
+
+        {
+            q: 'ما الغشاء الذي يحيط بالجنين داخل الرحم ويساهم في حمايته وتغذيته طوال فترة الحمل؟',
+            a: 'المشيمة'
+        },
+
+        {
+            q: 'ما اسم الشخصية التاريخية الشهيرة التي تُنسب إليها الكثير من الحكايات والنوادر الفكاهية؟',
+            a: 'جحا'
+        },
+
+        {
+            q: 'ما أسرع عضلة استجابةً وحركةً في جسم الإنسان؟',
+            a: 'الجفون'
+        },
+
+        {
+            q: 'ما الهيئة أو الجهة المسؤولة عن مراقبة البضائع والرسوم المفروضة على الاستيراد والتصدير؟',
+            a: 'الجمارك'
+        },
+
+        {
+            q: 'ما اللعبة الإلكترونية التي تتصدر قائمة أكثر الألعاب مبيعًا في التاريخ؟',
+            a: 'ماين كرافت'
+        },
+
+        {
+            q: 'من هو الحارس السعودي الذي لعب لناديي الطائي والهلال ولُقّب بـ«الأخطبوط»؟',
+            a: 'محمد الدعيع'
+        },
+
+        {
+            q: 'ما وحدة القياس الدولية المستخدمة لقياس شدة الفيض أو كثافة الفيض المغناطيسي؟',
+            a: 'تسلا'
+        },
+
+        {
+            q: 'ما المصطلح السياسي الذي يعني حق النقض في مجلس الأمن الدولي؟',
+            a: 'فيتو'
+        },
+
+        {
+            q: 'ما اسم القرية الأثرية الشهيرة الواقعة على أطراف الربع الخالي، والتي كانت تُعد العاصمة الأولى لمملكة كندة في نجد؟',
+            a: 'الفاو'
+        },
+
+        {
+            q: 'ما النبات الذي موطنه أمريكا، وتُستخدم ثماره للحصول على محلول أو مسحوق يُضاف إلى الأطعمة ليكسبها نكهة طيبة؟',
+            a: 'فانيليا'
+        },
+
+        {
+            q: 'ما قطرات الماء التي تتكون على الأسطح النباتية والأرضية نتيجة تكاثف بخار الماء في الجو؟',
+            a: 'الندى'
+        }
+
+    ];
+
+
+    /* =====================================================
+       GAME STATE
+    ===================================================== */
+
+    const gameState = {
+
+        team1Name: 'فريق الأخضر',
+
+        team2Name: 'فريق المجد',
+
+        drawnElements: [],
+
+        drawnQuestions: [],
+
+        currentElement: null,
+
+        currentQuestion: null,
+
+        team1Checked: {
+            free: true
+        },
+
+        team2Checked: {
+            free: true
+        },
+
+        hasTeam1Won: false,
+
+        hasTeam2Won: false
+
+    };
+
+
+    /* =====================================================
+       BOARD
+       FREE ALWAYS IN THE CENTER
+    ===================================================== */
+
+    const boardElements = shuffle(
+        RAW_BINGO_ELEMENTS
+    );
+
+    boardElements.splice(
+        12,
+        0,
+        {
+            id: 'free',
+            name: 'FREE',
+            icon: 'fa-star',
+            isFree: true
+        }
+    );
+
+
+    /* =====================================================
+       SHUFFLE
+    ===================================================== */
+
+    function shuffle(array) {
+
+        const arr = [...array];
+
+        for (
+            let i = arr.length - 1;
+            i > 0;
+            i--
+        ) {
+
+            const j =
+                Math.floor(
+                    Math.random() * (i + 1)
+                );
+
+            [
+                arr[i],
+                arr[j]
+            ] =
+            [
+                arr[j],
+                arr[i]
+            ];
+
+        }
+
+        return arr;
+    }
+
+
+    /* =====================================================
+       RENDER BOARDS
+    ===================================================== */
+
+    function renderTeamBoards() {
+
+        renderBoard(
+            'team1-board',
+            gameState.team1Checked,
+            1
+        );
+
+        renderBoard(
+            'team2-board',
+            gameState.team2Checked,
+            2
+        );
+
+        updateScores();
+
+    }
+
+
+    function renderBoard(
+        boardId,
+        checkedState,
+        teamNum
+    ) {
+
+        const board =
+            document.getElementById(boardId);
+
+        board.innerHTML = '';
+
+
+        boardElements.forEach(element => {
+
+            const cell =
+                document.createElement('button');
+
+            cell.type = 'button';
+
+            cell.className =
+                'bingo-cell';
+
+
+            if (
+                checkedState[element.id]
+            ) {
+
+                cell.classList.add(
+                    'checked'
+                );
+
+            }
+
+
+            if (element.isFree) {
+
+                cell.classList.add(
+                    'free'
+                );
+
+            }
+
+
+            cell.innerHTML = `
+                <i class="fa-solid ${element.icon}"></i>
+                <span>${element.name}</span>
+            `;
+
+
+            if (!element.isFree) {
+
+                cell.addEventListener(
+                    'click',
+                    () =>
+                        toggleTeamCell(
+                            teamNum,
+                            element.id
+                        )
+                );
+
+            }
+
+
+            board.appendChild(cell);
+
+        });
+
+    }
+
+
+    /* =====================================================
+       TOGGLE
+    ===================================================== */
+
+    function toggleTeamCell(
+        teamNum,
+        elementId
+    ) {
+
+        const checked =
+            teamNum === 1
+                ? gameState.team1Checked
+                : gameState.team2Checked;
+
+
+        checked[elementId] =
+            !checked[elementId];
+
+
+        renderTeamBoards();
+
+        checkWinConditions();
+
+    }
+
+
+    /* =====================================================
+       SCORE
+    ===================================================== */
+
+    function calculateScore(
+        checkedState
+    ) {
+
+        return Object.keys(
+            checkedState
+        )
+        .filter(
+            id => checkedState[id]
+        )
+        .length - 1;
+
+    }
+
+
+    function updateScores() {
+
+        document.getElementById(
+            'team1-score'
+        ).textContent =
+            calculateScore(
+                gameState.team1Checked
+            );
+
+
+        document.getElementById(
+            'team2-score'
+        ).textContent =
+            calculateScore(
+                gameState.team2Checked
+            );
+
+    }
+
+
+    /* =====================================================
+       WIN CONDITIONS
+    ===================================================== */
+
+    function checkWinConditions() {
+
+        checkTeamWin(
+            1,
+            gameState.team1Checked,
+            gameState.team1Name
+        );
+
+
+        checkTeamWin(
+            2,
+            gameState.team2Checked,
+            gameState.team2Name
+        );
+
+    }
+
+
+    function checkTeamWin(
+        teamNum,
+        checkedState,
+        teamName
+    ) {
+
+        const matrix = [];
+
+
+        for (
+            let row = 0;
+            row < 5;
+            row++
+        ) {
+
+            const currentRow = [];
+
+
+            for (
+                let col = 0;
+                col < 5;
+                col++
+            ) {
+
+                const index =
+                    row * 5 + col;
+
+
+                const element =
+                    boardElements[index];
+
+
+                currentRow.push(
+                    !!checkedState[
+                        element.id
+                    ]
+                );
+
+            }
+
+
+            matrix.push(
+                currentRow
+            );
+
+        }
+
+
+        let won = false;
+
+
+        /* ROWS */
+
+        for (
+            let row = 0;
+            row < 5;
+            row++
+        ) {
+
+            if (
+                matrix[row].every(Boolean)
+            ) {
+
+                won = true;
+
+            }
+
+        }
+
+
+        /* COLUMNS */
+
+        for (
+            let col = 0;
+            col < 5;
+            col++
+        ) {
+
+            let complete = true;
+
+
+            for (
+                let row = 0;
+                row < 5;
+                row++
+            ) {
+
+                if (
+                    !matrix[row][col]
+                ) {
+
+                    complete = false;
+
+                    break;
+
+                }
+
+            }
+
+
+            if (complete) {
+
+                won = true;
+
+            }
+
+        }
+
+
+        /* DIAGONAL 1 */
+
+        if (
+            matrix[0][0] &&
+            matrix[1][1] &&
+            matrix[2][2] &&
+            matrix[3][3] &&
+            matrix[4][4]
+        ) {
+
+            won = true;
+
+        }
+
+
+        /* DIAGONAL 2 */
+
+        if (
+            matrix[0][4] &&
+            matrix[1][3] &&
+            matrix[2][2] &&
+            matrix[3][1] &&
+            matrix[4][0]
+        ) {
+
+            won = true;
+
+        }
+
+
+        if (won) {
+
+            if (
+                teamNum === 1 &&
+                !gameState.hasTeam1Won
+            ) {
+
+                gameState.hasTeam1Won = true;
+
+                showWinModal(
+                    teamName
+                );
+
+            }
+
+
+            if (
+                teamNum === 2 &&
+                !gameState.hasTeam2Won
+            ) {
+
+                gameState.hasTeam2Won = true;
+
+                showWinModal(
+                    teamName
+                );
+
+            }
+
+        }
+
+    }
+
+
+    /* =====================================================
+       DRAW ELEMENT
+    ===================================================== */
+
+    function drawNextElement() {
+
+        const available =
+            RAW_BINGO_ELEMENTS.filter(
+                element =>
+                    !gameState.drawnElements.some(
+                        drawn =>
+                            drawn.id === element.id
+                    )
+            );
+
+
+        if (!available.length) {
+
+            document.getElementById(
+                'btn-draw-element'
+            ).disabled = true;
+
+
+            document.getElementById(
+                'element-name'
+            ).textContent =
+                'انتهت العناصر';
+
+
+            return;
+
+        }
+
+
+        const element =
+            available[
+                Math.floor(
+                    Math.random() *
+                    available.length
+                )
+            ];
+
+
+        gameState.drawnElements.push(
+            element
+        );
+
+
+        gameState.currentElement =
+            element;
+
+
+        document.getElementById(
+            'element-name'
+        ).textContent =
+            element.name;
+
+
+        document.getElementById(
+            'element-icon'
+        ).className =
+            `fa-solid ${element.icon}`;
+
+    }
+
+
+    /* =====================================================
+       DRAW QUESTION
+    ===================================================== */
+
+    function drawNextQuestion() {
+
+        const available =
+            QUESTIONS.filter(
+                question =>
+                    !gameState.drawnQuestions.includes(
+                        question
+                    )
+            );
+
+
+        if (!available.length) {
+
+            document.getElementById(
+                'btn-draw-question'
+            ).disabled = true;
+
+
+            document.getElementById(
+                'question-text'
+            ).textContent =
+                'انتهت جميع الأسئلة';
+
+
+            return;
+
+        }
+
+
+        const question =
+            available[
+                Math.floor(
+                    Math.random() *
+                    available.length
+                )
+            ];
+
+
+        gameState.drawnQuestions.push(
+            question
+        );
+
+
+        gameState.currentQuestion =
+            question;
+
+
+        document.getElementById(
+            'question-text'
+        ).textContent =
+            question.q;
+
+
+        document.getElementById(
+            'answer-text'
+        ).textContent =
+            question.a;
+
+
+        document.getElementById(
+            'answer-box'
+        ).style.display =
+            'none';
+
+
+        document.getElementById(
+            'btn-reveal'
+        ).style.display =
+            'inline-block';
+
+    }
+
+
+    /* =====================================================
+       REVEAL ANSWER
+    ===================================================== */
+
+    function revealAnswer() {
+
+        if (
+            !gameState.currentQuestion
+        ) {
+
+            return;
+
+        }
+
+
+        document.getElementById(
+            'answer-box'
+        ).style.display =
+            'block';
+
+
+        document.getElementById(
+            'btn-reveal'
+        ).style.display =
+            'none';
+
+    }
+
+
+    /* =====================================================
+       WIN MODAL
+    ===================================================== */
+
+    function showWinModal(
+        teamName
+    ) {
+
+        document.getElementById(
+            'win-title'
+        ).textContent =
+            `🎉 مبروك الفوز يا ${teamName}! 🎉`;
+
+
+        document.getElementById(
+            'win-message'
+        ).textContent =
+            'استطاع الفريق إكمال خط مستقيم في لوحة البينجو!';
+
+
+        document.getElementById(
+            'win-modal'
+        ).classList.add(
+            'show'
+        );
+
+
+        startCelebration();
+
+    }
+
+
+    /* =====================================================
+       CLOSE MODAL
+    ===================================================== */
+
+    function closeWinModal() {
+
+        document.getElementById(
+            'win-modal'
+        ).classList.remove(
+            'show'
+        );
+
+
+        clearCelebration();
+
+    }
+
+
+    /* =====================================================
+       RESET GAME
+    ===================================================== */
+
+    function resetGame() {
+
+        gameState.drawnElements = [];
+
+        gameState.drawnQuestions = [];
+
+        gameState.currentElement = null;
+
+        gameState.currentQuestion = null;
+
+
+        gameState.team1Checked = {
+            free: true
+        };
+
+
+        gameState.team2Checked = {
+            free: true
+        };
+
+
+        gameState.hasTeam1Won = false;
+
+        gameState.hasTeam2Won = false;
+
+
+        document.getElementById(
+            'question-text'
+        ).textContent =
+            'اضغط على "سحب سؤال" لبدء اللعبة';
+
+
+        document.getElementById(
+            'answer-text'
+        ).textContent = '';
+
+
+        document.getElementById(
+            'answer-box'
+        ).style.display =
+            'none';
+
+
+        document.getElementById(
+            'btn-reveal'
+        ).style.display =
+            'none';
+
+
+        document.getElementById(
+            'element-name'
+        ).textContent =
+            'اسحب عنصرًا';
+
+
+        document.getElementById(
+            'element-icon'
+        ).className =
+            'fa-solid fa-star';
+
+
+        document.getElementById(
+            'btn-draw-element'
+        ).disabled = false;
+
+
+        document.getElementById(
+            'btn-draw-question'
+        ).disabled = false;
+
+
+        closeWinModal();
+
+        renderTeamBoards();
+
+    }
+
+
+    /* =====================================================
+       CONFETTI
+    ===================================================== */
+
+    function startCelebration() {
+
+        const container =
+            document.getElementById(
+                'confetti-container'
+            );
+
+
+        container.innerHTML = '';
+
+
+        const pieces = 90;
+
+
+        const confettiColors = [
+
+            '#D5A04A',
+
+            '#C9783E',
+
+            '#65745A',
+
+            '#FFF9F0'
+
+        ];
+
+
+        for (
+            let i = 0;
+            i < pieces;
+            i++
+        ) {
+
+            const piece =
+                document.createElement(
+                    'div'
+                );
+
+
+            piece.className =
+                'confetti';
+
+
+            piece.style.left =
+                Math.random() * 100 + '%';
+
+
+            piece.style.background =
+                confettiColors[
+                    Math.floor(
+                        Math.random() *
+                        confettiColors.length
+                    )
+                ];
+
+
+            piece.style.setProperty(
+                '--move-x',
+                ((Math.random() - 0.5) * 400) + 'px'
+            );
+
+
+            piece.style.animationDuration =
+                (2.5 + Math.random() * 2.5) + 's';
+
+
+            piece.style.animationDelay =
+                (Math.random() * 0.8) + 's';
+
+
+            container.appendChild(
+                piece
+            );
+
+        }
+
+    }
+
+
+    /* =====================================================
+       CLEAR CONFETTI
+    ===================================================== */
+
+    function clearCelebration() {
+
+        const container =
+            document.getElementById(
+                'confetti-container'
+            );
+
+
+        container.innerHTML = '';
+
+    }
+
+
+    /* =====================================================
+       TEAM NAMES
+    ===================================================== */
+
+    document.getElementById(
+        'team1-name'
+    ).addEventListener(
+        'input',
+        function () {
+
+            gameState.team1Name =
+                this.value.trim() ||
+                'فريق الأخضر';
+
+        }
+    );
+
+
+    document.getElementById(
+        'team2-name'
+    ).addEventListener(
+        'input',
+        function () {
+
+            gameState.team2Name =
+                this.value.trim() ||
+                'فريق المجد';
+
+        }
+    );
+
+
+    /* =====================================================
+       BUTTON EVENTS
+    ===================================================== */
+
+    document.getElementById(
+        'btn-draw-element'
+    ).addEventListener(
+        'click',
+        drawNextElement
+    );
+
+
+    document.getElementById(
+        'btn-draw-question'
+    ).addEventListener(
+        'click',
+        drawNextQuestion
+    );
+
+
+    document.getElementById(
+        'btn-reveal'
+    ).addEventListener(
+        'click',
+        revealAnswer
+    );
+
+
+    document.getElementById(
+        'btn-reset-game'
+    ).addEventListener(
+        'click',
+        resetGame
+    );
+
+
+    /* =====================================================
+       START
+    ===================================================== */
+
+    renderTeamBoards();
+
+</script>
+
+</body>
+</html>
