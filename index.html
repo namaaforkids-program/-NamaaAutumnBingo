@@ -280,11 +280,21 @@
         font-size: 36px;
     }
 
+    /* لون عنصر السحب نفس لون الكتابة */
+
     .custom-element-icon {
         width: 95px;
         height: 95px;
 
         object-fit: contain;
+
+        filter: brightness(0) saturate(100%)
+                invert(18%)
+                sepia(18%)
+                saturate(1746%)
+                hue-rotate(284deg)
+                brightness(85%)
+                contrast(91%);
     }
 
     #element-name {
@@ -629,6 +639,22 @@
         opacity: 0.45;
 
         cursor: not-allowed;
+    }
+
+    /* الحقوق */
+
+    .copyright {
+        text-align: center;
+
+        color: #5E244E;
+
+        font-size: 11px;
+
+        font-weight: 600;
+
+        padding: 2px 0 8px;
+
+        flex-shrink: 0;
     }
 
     /* WIN */
@@ -1115,6 +1141,11 @@
         </button>
 
     </section>
+
+
+    <footer class="copyright">
+        © 2026 نماء — جميع الحقوق محفوظة
+    </footer>
 
 </div>
 
